@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: >
+  Enforce high‑level folder & naming conventions for the frontend
+  Next.js / React codebase. Applies to app, components, libs, models,
+  and public trees. Leaves API sub‑domains (auth, payments, etc.)
+  configurable by feature owners.
+globs:
+  - "app/**/*"
+  - "components/**/*"
+  - "libs/**/*"
+  - "models/**/*"
+  - "public/**/*"
+alwaysApply: true
+---
+
+# 📁 Folder layout
+
+- **app/**
+  - Each route segment gets `layout.js|tsx` + `page.js|tsx`.
+  - API routes live in `app/api/<domain>/` where `<domain>` is any
+    feature area (auth, payments, leads, …). Keep one file per HTTP
+    method (`route.js`) inside that folder.
+  - Put global styles in `app/globals.css`.
+- **components/**
+  - Reusable UI primitives in `PascalCase.js|tsx`.
+  - Co‑locate variant siblings (`Testimonials1.js`, `TestimonialsSmall.js`).
+- **libs/**
+  - Pure helpers & service clients (`mongo.js`, `stripe.js`, etc.).
+  - No React imports; keep these framework‑agnostic.
+- **models/**
+  - Data schemas (e.g., Mongoose). Shared plugins live in
+    `models/plugins/`.
+- **public/**
+  - Static assets only. Generated artefacts (sitemap‑*.xml, robots.txt)
+    land here.
+
+# ✅ Conventions
+
+1. **No server‑only libs in components** – call them through API routes.
+2. **TypeScript optional** – prefer `.tsx|.ts` if TS is enabled.
+3. **Tests** – place `*.test.(js|ts)` next to the file they cover and
+   exclude from prod builds.
+4. **New feature?** – create a sub‑segment under `app/` and mirror any
+   supporting code in `components/` and `libs/`.
+
+@file ../../next.config.js
+@file ../../tailwind.config.js
