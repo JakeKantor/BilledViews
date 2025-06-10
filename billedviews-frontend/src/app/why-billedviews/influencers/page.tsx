@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function InfluencersPage() {
   return (
@@ -12,6 +13,7 @@ export default function InfluencersPage() {
           See how BilledViews supports influencers
         </p>
       </main>
+      <Footer />
     </div>
   );
 }

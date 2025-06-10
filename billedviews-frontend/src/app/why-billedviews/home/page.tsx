@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
           Discover how BilledViews can transform your business
         </p>
       </main>
+      <Footer />
     </div>
   );
 }

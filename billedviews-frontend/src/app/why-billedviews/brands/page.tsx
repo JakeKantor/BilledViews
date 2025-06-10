@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function BrandsPage() {
   return (
@@ -10,6 +11,7 @@ export default function BrandsPage() {
           Learn how BilledViews helps brands grow
         </p>
       </main>
+      <Footer />
     </div>
   );
 }

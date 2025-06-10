@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function AgenciesPage() {
   return (
@@ -10,6 +11,7 @@ export default function AgenciesPage() {
           Discover how BilledViews empowers agencies
         </p>
       </main>
+      <Footer />
     </div>
   );
 }
