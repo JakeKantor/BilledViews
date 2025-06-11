@@ -11,27 +11,31 @@ const socialIcons = [
   {
     src: "/why-billedviews/home/FacebookIcon.svg",
     alt: "Facebook",
-    className: "left-1/4 top-24 w-16 h-16",
+    className:
+      "left-4 top-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:left-40 lg:top-24 lg:w-24 lg:h-24",
   },
   {
     src: "/why-billedviews/home/YoutubeIcon.svg",
     alt: "YouTube",
-    className: "left-60 top-72 w-24 h-24",
+    className:
+      "left-8 bottom-8 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:left-20 lg:top-80 lg:w-28 lg:h-28",
   },
   {
     src: "/why-billedviews/home/TikTokIcon.svg",
     alt: "TikTok",
-    className: "right-1/4 top-20 w-16 h-16",
+    className:
+      "right-8 top-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:right-40 lg:top-20 lg:w-24 lg:h-24",
   },
   {
     src: "/why-billedviews/home/InstagramIcon.svg",
     alt: "Instagram",
-    className: "right-60 top-72 w-24 h-24",
+    className:
+      "right-8 bottom-72 w-12 h-12 sm:w-16 sm:h-16 sm:bottom-80 md:w-24 md:h-24 lg:right-20 lg:top-80 lg:w-28 lg:h-28",
   },
 ];
 
 export const Hero = () => (
-  <section className="relative flex flex-col items-center justify-center min-h-[750px] bg-gradient-to-b from-[#f6f8ff] to-[#e9edfa] rounded-[32px] overflow-hidden px-4 pt-0 pb-0 mt-4 ml-8 mr-8">
+  <section className="relative flex flex-col items-center justify-center min-h-[900px] bg-gradient-to-b from-[#f6f8ff] to-[#e9edfa] rounded-none lg:rounded-[32px] overflow-hidden px-0 lg:px-4 pt-0 pb-0 lg:mt-4 lg:mx-8">
     {/* Floating Social Icons */}
     {socialIcons.map((icon) => (
       <Image
@@ -45,9 +49,9 @@ export const Hero = () => (
       />
     ))}
 
-    {/* Main Content Block - no negative margin */}
-    <div className="flex flex-col items-center z-20">
-      {/* Avatars Row - extreme negative margin top to pull to absolute top */}
+    {/* Main Content Block */}
+    <div className="flex flex-col items-center z-20 -mt-8">
+      {/* Avatars Row */}
       <div className="flex items-center -mt-64 mb-2">
         {avatars.map((src, idx) => (
           <Image
@@ -80,9 +84,12 @@ export const Hero = () => (
       </p>
 
       {/* Buttons */}
-      <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-20">
+      <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
         <button className="flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#6C78FF] text-white text-base font-semibold shadow-md hover:bg-[#5a66e0] transition">
-          Get Started Free <ArrowRight className="w-5 h-5" />
+          Get Started Free
+          <span className="flex items-center justify-center rounded-full bg-white w-8 h-8 ml-4">
+            <ArrowRight className="w-4 h-4 text-[#6C78FF]" />
+          </span>
         </button>
         <button className="px-8 py-3 rounded-full bg-white text-[#6C78FF] text-base font-semibold border border-[#6C78FF] shadow-md hover:bg-[#f6f8ff] transition">
           Request a Demo
@@ -94,17 +101,17 @@ export const Hero = () => (
     <Image
       src="/why-billedviews/home/Chart 1.svg"
       alt="Chart 1"
-      width={400}
-      height={220}
-      className="absolute left-[12%] bottom-8 w-[380px] rotate-[-8deg] z-10 drop-shadow-xl"
+      width={500}
+      height={275}
+      className="absolute -left-4 bottom-40 w-[280px] sm:w-[320px] md:w-[400px] rotate-[-2deg] z-10 drop-shadow-xl lg:left-12 lg:bottom-12 lg:w-[500px] lg:rotate-[-4deg]"
       priority
     />
     <Image
       src="/why-billedviews/home/Chart 4.svg"
       alt="Chart 4"
-      width={260}
-      height={140}
-      className="absolute right-[12%] bottom-8 w-[240px] rotate-[8deg] z-10 drop-shadow-xl"
+      width={340}
+      height={180}
+      className="absolute right-2 bottom-8 w-[220px] sm:w-[260px] md:w-[320px] rotate-[4deg] z-10 drop-shadow-xl lg:right-20 lg:bottom-12 lg:w-[340px] lg:rotate-[8deg]"
       priority
     />
   </section>
