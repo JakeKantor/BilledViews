@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Header } from "@/components/why-billedviews/Header";
+import Footer from "@/components/why-billedviews/Footer";
 
 export default function InfluencersPage() {
   return (
