@@ -153,13 +153,15 @@ export const HowItWorks = () => (
               {/* Mockup image(s) */}
               {step.img &&
                 (index === 2 ? (
-                  <Image
-                    src={step.img}
-                    alt={`${step.title} mockup`}
-                    width={200}
-                    height={120}
-                    className="object-contain -rotate-3 drop-shadow-lg absolute right-0.5 bottom-6"
-                  />
+                  <div className="relative mt-auto min-h-[120px] w-full">
+                    <Image
+                      src={step.img}
+                      alt={`${step.title} mockup`}
+                      width={200}
+                      height={120}
+                      className="object-contain -rotate-3 drop-shadow-lg absolute bottom-0 -right-6 md:bottom-6 md:-right-6"
+                    />
+                  </div>
                 ) : (
                   <div
                     className={`flex justify-center ${
