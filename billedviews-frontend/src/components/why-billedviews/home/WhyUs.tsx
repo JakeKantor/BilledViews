@@ -78,7 +78,7 @@ export const WhyUs = () => (
         className="text-center text-[#111111] mb-6"
         style={{
           fontFamily: "Satoshi, sans-serif",
-          fontWeight: 500,
+          fontWeight: 700,
           fontSize: "40px",
           lineHeight: "110%",
           letterSpacing: "0%",

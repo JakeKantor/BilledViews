@@ -41,7 +41,7 @@ const FeaturedBrands = () => {
             className="text-center text-[#111111] mb-4"
             style={{
               fontFamily: "Satoshi, sans-serif",
-              fontWeight: 500,
+              fontWeight: 700,
               fontSize: "40px",
               lineHeight: "110%",
               letterSpacing: "0%",

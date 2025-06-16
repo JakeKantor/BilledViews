@@ -90,7 +90,7 @@ export const HowItWorks = () => (
           className="text-center text-white mb-16"
           style={{
             fontFamily: "Satoshi, sans-serif",
-            fontWeight: 500,
+            fontWeight: 700,
             fontSize: "40px",
             lineHeight: "110%",
             letterSpacing: "0%",
