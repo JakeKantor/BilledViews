@@ -57,7 +57,7 @@ const coreFeaturesData = [
     },
     images: [
       {
-        src: "/why-billedviews/home/Browse%20&%20Filter%202,500+%20Verified%20Creators.svg",
+        src: "/why-billedviews/home/browse-filter-2500-verified-creators.svg",
         width: 400,
         height: 250,
         position: {

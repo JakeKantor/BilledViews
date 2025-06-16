@@ -27,8 +27,7 @@ const features = [
     title: "2,500+ Vetted Creators at Your Fingertips",
     description:
       "Browse creators by niche, follower count, engagement rate, or past campaign success. See sample posts, audience insights, and apply directly. When you find &quot;the one,&quot; hit Approve—done.",
-    mockup:
-      "/why-billedviews/home/2,500+ Vetted Creators at Your Fingertips.svg",
+    mockup: "/why-billedviews/home/2500-vetted-creators-fingertips.svg",
     cardType: "tall",
   },
 ];

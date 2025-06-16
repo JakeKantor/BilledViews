@@ -3,16 +3,43 @@ import Image from "next/image";
 
 export const Pricing = () => {
   return (
-    <section className="w-full py-16 lg:py-24 flex justify-center items-center">
+    <section className="w-full py-16 lg:py-24 flex justify-center items-center px-4 lg:px-0">
       <div
-        className="relative mx-auto px-4 lg:px-8 rounded-[40px] flex flex-col items-center w-full h-auto lg:w-[1200px] lg:h-[615px]"
+        className="relative mx-auto lg:px-8 rounded-[40px] flex flex-col items-center w-full h-auto lg:w-[1200px] lg:h-[720px] overflow-hidden pb-12"
         style={{
           background:
             "linear-gradient(124.91deg, #7A86FF 15.95%, #3C9DFF 85.44%)",
         }}
       >
+        {/* Light purple circular gradient at bottom */}
+        <div
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] opacity-25 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(156, 139, 255, 0.9) 0%, rgba(156, 139, 255, 0) 70%)",
+          }}
+        />
+
+        {/* Additional light purple circular gradient at right */}
+        <div
+          className="absolute bottom-20 right-0 w-[500px] h-[500px] opacity-20 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(176, 159, 255, 0.8) 0%, rgba(176, 159, 255, 0) 70%)",
+          }}
+        />
+
+        {/* Additional light purple circular gradient at left */}
+        <div
+          className="absolute top-40 left-0 w-[450px] h-[450px] opacity-20 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(136, 119, 255, 0.8) 0%, rgba(136, 119, 255, 0) 70%)",
+          }}
+        />
+
         {/* Header with Icon */}
-        <div className="flex items-center justify-center mb-6 mt-8 lg:mt-16">
+        <div className="flex items-center justify-center mb-6 mt-8 lg:mt-16 relative z-10">
           <div className="flex items-center gap-3 bg-white rounded-[32px] shadow-[0_2px_4px_rgba(184,200,216,0.6)] px-6 py-2">
             <div className="flex items-center justify-center w-6 h-6">
               <Image
@@ -40,7 +67,7 @@ export const Pricing = () => {
 
         {/* Main Title */}
         <h2
-          className="text-center text-white mb-6 font-bold"
+          className="text-center text-white mb-6 font-bold relative z-10"
           style={{
             fontFamily: "Satoshi, sans-serif",
             fontWeight: 700,
@@ -55,7 +82,7 @@ export const Pricing = () => {
 
         {/* Subtitle */}
         <p
-          className="text-center text-white max-w-4xl mx-auto mb-12 px-4"
+          className="text-center text-white max-w-4xl mx-auto mb-12 px-4 relative z-10"
           style={{
             fontFamily: "Satoshi, sans-serif",
             fontWeight: 500,
@@ -68,7 +95,7 @@ export const Pricing = () => {
         </p>
 
         {/* DESKTOP Pricing Table */}
-        <div className="max-w-[1086px] mx-auto hidden lg:block">
+        <div className="max-w-[1086px] mx-auto hidden lg:block relative z-10">
           {/* Titles */}
           <div className="grid grid-cols-3 mb-4 text-center px-6">
             <h3
@@ -157,69 +184,101 @@ export const Pricing = () => {
         </div>
 
         {/* MOBILE Pricing Table */}
-        <div className="w-full px-4 lg:hidden">
-          <div className="bg-white rounded-[40px] p-8 flex flex-col items-center text-center space-y-6">
-            <div>
+        <div className="w-full px-6 sm:px-8 lg:hidden relative z-10">
+          <div
+            className="bg-white rounded-[40px] p-6 flex flex-col items-center text-center space-y-8 relative overflow-hidden"
+            style={{
+              background: "hsla(0, 0%, 100%, 1)",
+              boxShadow: "0px 2px 8px 0px hsla(237, 30%, 84%, 1)",
+            }}
+          >
+            {/* Light purple circular gradient at bottom of mobile table */}
+            <div
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[300px] h-[300px] opacity-20 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(156, 139, 255, 0.9) 0%, rgba(156, 139, 255, 0) 70%)",
+              }}
+            />
+            <div className="w-full relative z-10">
               <h3
-                className="text-[#111111]"
+                className="text-[#111111] mb-1"
                 style={{
-                  fontFamily: "Satoshi",
-                  fontWeight: 500,
-                  fontSize: "14px",
+                  fontFamily: "Satoshi, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 Brand Fee Structure:
               </h3>
               <p
-                className="text-[#111111]"
+                className="text-[#111111] font-bold"
                 style={{
-                  fontFamily: "Satoshi",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 700,
-                  fontSize: "20px",
+                  fontSize: "18px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 10% on every deposit
               </p>
             </div>
-            <div>
+            <div className="w-full relative z-10">
               <h3
-                className="text-[#111111]"
+                className="text-[#111111] mb-1"
                 style={{
-                  fontFamily: "Satoshi",
-                  fontWeight: 500,
-                  fontSize: "14px",
+                  fontFamily: "Satoshi, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 Influencer Fee:
               </h3>
               <p
-                className="text-[#111111]"
+                className="text-[#111111] font-bold"
                 style={{
-                  fontFamily: "Satoshi",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 700,
-                  fontSize: "20px",
+                  fontSize: "18px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 15% of payouts
               </p>
             </div>
-            <div>
+            <div className="w-full relative z-10">
               <h3
-                className="text-[#111111]"
+                className="text-[#111111] mb-1"
                 style={{
-                  fontFamily: "Satoshi",
-                  fontWeight: 500,
-                  fontSize: "14px",
+                  fontFamily: "Satoshi, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 Agency Commission:
               </h3>
               <p
-                className="text-[#111111]"
+                className="text-[#111111] font-bold"
                 style={{
-                  fontFamily: "Satoshi",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 700,
-                  fontSize: "20px",
+                  fontSize: "18px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
                 }}
               >
                 5% of referred brand spend
@@ -229,7 +288,7 @@ export const Pricing = () => {
         </div>
 
         {/* Mobile CTA Button */}
-        <div className="flex justify-center mt-8 lg:hidden">
+        <div className="flex justify-center mt-8 lg:hidden relative z-10">
           <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 transition-colors">
             Get Started Free
             <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2">
@@ -239,7 +298,7 @@ export const Pricing = () => {
         </div>
 
         {/* Pricing Explanation */}
-        <div className="text-center text-white max-w-4xl mx-auto mt-8 mb-8 lg:mb-4 px-4">
+        <div className="text-center text-white max-w-4xl mx-auto mt-8 mb-8 lg:mb-8 px-4 relative z-10">
           <p
             className="mb-2"
             style={{
@@ -279,7 +338,7 @@ export const Pricing = () => {
         </div>
 
         {/* Desktop CTA Button */}
-        <div className="hidden justify-center mt-8 lg:flex">
+        <div className="hidden justify-center mt-4 lg:flex relative z-10">
           <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 transition-colors">
             Get Started Free
             <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2">

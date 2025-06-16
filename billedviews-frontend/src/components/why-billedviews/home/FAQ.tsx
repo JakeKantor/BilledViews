@@ -121,7 +121,7 @@ const FAQ = () => {
                 aria-controls={`faq-content-${index}`}
               >
                 <h3
-                  className="text-lg"
+                  className="text-lg pr-4 max-w-[calc(100%-48px)]"
                   style={{
                     fontFamily: "Satoshi, sans-serif",
                     fontWeight: 500,
@@ -134,7 +134,7 @@ const FAQ = () => {
                 </h3>
 
                 <div
-                  className="flex items-center justify-center rounded-full w-10 h-10"
+                  className="flex-shrink-0 flex items-center justify-center rounded-full w-10 h-10 min-w-[40px]"
                   style={{
                     backgroundColor: "#6C78FF",
                   }}
