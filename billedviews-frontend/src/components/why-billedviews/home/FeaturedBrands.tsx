@@ -37,10 +37,29 @@ const FeaturedBrands = () => {
             />
             <span className="text-[#6f6fff] font-semibold">Top Cases</span>
           </div>
-          <h2 className="text-4xl font-bold mb-4">
+          <h2
+            className="text-center text-[#111111] mb-4"
+            style={{
+              fontFamily: "Satoshi, sans-serif",
+              fontWeight: 500,
+              fontSize: "40px",
+              lineHeight: "110%",
+              letterSpacing: "0%",
+              textAlign: "center",
+            }}
+          >
             Featured Brand Success Stories
           </h2>
-          <p className="text-gray-600">
+          <p
+            className="text-[#6B7280]"
+            style={{
+              fontFamily: "Satoshi, sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "150%",
+              letterSpacing: "0%",
+            }}
+          >
             See Why 100+ Brands Have Boosted ROI with BilledViews
           </p>
         </div>
@@ -61,8 +80,32 @@ const FeaturedBrands = () => {
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-              <p className="text-gray-600 mb-6">{item.description}</p>
+              <h3
+                className="mb-4"
+                style={{
+                  fontFamily: "Satoshi, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "22px",
+                  lineHeight: "110%",
+                  letterSpacing: "0%",
+                  color: "#111111",
+                }}
+              >
+                {item.title}
+              </h3>
+              <p
+                className="mb-6"
+                style={{
+                  fontFamily: "Satoshi, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  color: "#6B7280",
+                }}
+              >
+                {item.description}
+              </p>
               <div className="absolute bottom-2 left-8 text-indigo-500">
                 <svg
                   width="28"

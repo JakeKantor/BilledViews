@@ -75,9 +75,10 @@ export const WhyUs = () => (
 
       {/* Main Title */}
       <h2
-        className="text-center text-[#111111] mb-6 font-satoshi"
+        className="text-center text-[#111111] mb-6"
         style={{
-          fontWeight: 700,
+          fontFamily: "Satoshi, sans-serif",
+          fontWeight: 500,
           fontSize: "40px",
           lineHeight: "110%",
           letterSpacing: "0%",
@@ -89,8 +90,9 @@ export const WhyUs = () => (
 
       {/* Description */}
       <p
-        className="text-center max-w-4xl mx-auto mb-16 font-satoshi"
+        className="text-center max-w-4xl mx-auto mb-16"
         style={{
+          fontFamily: "Satoshi, sans-serif",
           fontWeight: 400,
           fontSize: "16px",
           lineHeight: "150%",
@@ -133,7 +135,7 @@ export const WhyUs = () => (
               <h3
                 className="text-[#111111] mb-2 sm:mb-3 lg:mb-4 text-[18px] sm:text-[20px] lg:text-[22px]"
                 style={{
-                  fontFamily: "Helvetica Neue, sans-serif",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -142,8 +144,9 @@ export const WhyUs = () => (
                 {features[0].title}
               </h3>
               <p
-                className="text-[#6B7280] font-satoshi text-[14px] sm:text-[15px] lg:text-[16px]"
+                className="text-[#6B7280] text-[14px] sm:text-[15px] lg:text-[16px]"
                 style={{
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
@@ -176,7 +179,7 @@ export const WhyUs = () => (
               <h3
                 className="text-[#111111] mb-2 sm:mb-3 lg:mb-4 text-[18px] sm:text-[20px] lg:text-[22px]"
                 style={{
-                  fontFamily: "Helvetica Neue, sans-serif",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -185,8 +188,9 @@ export const WhyUs = () => (
                 {features[2].title}
               </h3>
               <p
-                className="text-[#6B7280] font-satoshi text-[14px] sm:text-[15px] lg:text-[16px]"
+                className="text-[#6B7280] text-[14px] sm:text-[15px] lg:text-[16px]"
                 style={{
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
@@ -222,7 +226,7 @@ export const WhyUs = () => (
               <h3
                 className="text-[#111111] mb-2 sm:mb-3 lg:mb-4 text-[18px] sm:text-[20px] lg:text-[22px]"
                 style={{
-                  fontFamily: "Helvetica Neue, sans-serif",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -231,8 +235,9 @@ export const WhyUs = () => (
                 {features[1].title}
               </h3>
               <p
-                className="text-[#6B7280] font-satoshi text-[14px] sm:text-[15px] lg:text-[16px]"
+                className="text-[#6B7280] text-[14px] sm:text-[15px] lg:text-[16px]"
                 style={{
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
@@ -265,7 +270,7 @@ export const WhyUs = () => (
               <h3
                 className="text-[#111111] mb-2 sm:mb-3 lg:mb-4 text-[18px] sm:text-[20px] lg:text-[22px]"
                 style={{
-                  fontFamily: "Helvetica Neue, sans-serif",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -274,8 +279,9 @@ export const WhyUs = () => (
                 {features[3].title}
               </h3>
               <p
-                className="text-[#6B7280] font-satoshi text-[14px] sm:text-[15px] lg:text-[16px]"
+                className="text-[#6B7280] text-[14px] sm:text-[15px] lg:text-[16px]"
                 style={{
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",

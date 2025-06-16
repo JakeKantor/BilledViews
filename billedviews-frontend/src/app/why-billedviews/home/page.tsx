@@ -5,6 +5,7 @@ import KeyBenefits from "@/components/why-billedviews/home/KeyBenefits";
 import WhyUs from "@/components/why-billedviews/home/WhyUs";
 import HowItWorks from "@/components/why-billedviews/home/HowItWorks";
 import FeaturedBrands from "@/components/why-billedviews/home/FeaturedBrands";
+import CoreFeatures from "@/components/why-billedviews/home/CoreFeatures";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <WhyUs />
       <HowItWorks />
       <FeaturedBrands />
+      <CoreFeatures />
       <Footer />
     </div>
   );

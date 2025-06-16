@@ -86,7 +86,17 @@ export const HowItWorks = () => (
         </div>
 
         {/* Main Title */}
-        <h2 className="text-center text-white mb-16 font-bold text-[32px] lg:text-[40px] leading-tight">
+        <h2
+          className="text-center text-white mb-16"
+          style={{
+            fontFamily: "Satoshi, sans-serif",
+            fontWeight: 500,
+            fontSize: "40px",
+            lineHeight: "110%",
+            letterSpacing: "0%",
+            textAlign: "center",
+          }}
+        >
           Launch Your First Campaign in 4 Simple Steps
         </h2>
 
@@ -140,7 +150,7 @@ export const HowItWorks = () => (
               <h3
                 className="mb-6 text-[22px]"
                 style={{
-                  fontFamily: "Helvetica Neue, sans-serif",
+                  fontFamily: "Satoshi, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "0%",
