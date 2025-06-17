@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "For Brands", href: "/why-billedviews/brands" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,6 +33,9 @@ export const Header = () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
+
+  // Check if a link is active
+  const isActive = (href: string) => pathname === href;
 
   return (
     <>
@@ -107,7 +112,11 @@ export const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs font-normal text-[#111111] hover:text-gray-600 transition-colors"
+                  className={`text-xs font-normal transition-colors relative ${
+                    isActive(link.href)
+                      ? "text-[#6C78FF] after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:h-[2px] after:w-full after:bg-[#6C78FF]"
+                      : "text-[#111111] hover:after:content-[''] hover:after:absolute hover:after:left-0 hover:after:bottom-[-5px] hover:after:h-[2px] hover:after:w-full hover:after:bg-gray-300"
+                  }`}
                   style={{
                     fontFamily: "Satoshi, system-ui, sans-serif",
                     lineHeight: "100%",
@@ -178,7 +187,11 @@ export const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-base font-normal text-[#111111] hover:text-gray-600 transition-colors py-2"
+                  className={`block text-base font-normal transition-colors relative py-2 ${
+                    isActive(link.href)
+                      ? "text-[#6C78FF] after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[#6C78FF]"
+                      : "text-[#111111] hover:after:content-[''] hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:h-[2px] hover:after:w-full hover:after:bg-gray-300"
+                  }`}
                   style={{
                     fontFamily: "Satoshi, system-ui, sans-serif",
                     lineHeight: "100%",
