@@ -112,16 +112,16 @@ const FAQ = () => {
           {faqItems.map((item, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-[24px] overflow-hidden"
+              className="border border-gray-200 rounded-[24px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:border-gray-300"
             >
               <button
                 onClick={() => handleToggle(index)}
-                className="flex justify-between items-center w-full p-6 text-left"
+                className="flex justify-between items-center w-full p-6 text-left transition-all duration-300 ease-in-out"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-content-${index}`}
               >
                 <h3
-                  className="text-lg pr-4 max-w-[calc(100%-48px)]"
+                  className="text-lg pr-4 max-w-[calc(100%-48px)] transition-all duration-300 ease-in-out"
                   style={{
                     fontFamily: "Satoshi, sans-serif",
                     fontWeight: 500,
@@ -134,7 +134,7 @@ const FAQ = () => {
                 </h3>
 
                 <div
-                  className="flex-shrink-0 flex items-center justify-center rounded-full w-10 h-10 min-w-[40px]"
+                  className="flex-shrink-0 flex items-center justify-center rounded-full w-10 h-10 min-w-[40px] transition-all duration-300 ease-in-out transform hover:scale-110"
                   style={{
                     backgroundColor: "#6C78FF",
                   }}
@@ -146,6 +146,7 @@ const FAQ = () => {
                       viewBox="0 0 14 2"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="transition-all duration-300 ease-in-out"
                     >
                       <path
                         d="M1 1H13"
@@ -162,6 +163,7 @@ const FAQ = () => {
                       viewBox="0 0 14 14"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="transition-all duration-300 ease-in-out"
                     >
                       <path
                         d="M7 1V13M1 7H13"
@@ -175,8 +177,19 @@ const FAQ = () => {
                 </div>
               </button>
 
-              {openIndex === index && (
-                <div id={`faq-content-${index}`} className="px-6 pb-6">
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === index
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div
+                  id={`faq-content-${index}`}
+                  className={`px-6 pb-6 transform transition-all duration-500 ease-in-out ${
+                    openIndex === index ? "translate-y-0" : "-translate-y-4"
+                  }`}
+                >
                   <p
                     className="text-gray-600"
                     style={{
@@ -189,7 +202,7 @@ const FAQ = () => {
                     {item.answer}
                   </p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

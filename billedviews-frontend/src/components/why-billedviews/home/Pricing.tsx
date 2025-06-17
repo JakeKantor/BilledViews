@@ -289,9 +289,9 @@ export const Pricing = () => {
 
         {/* Mobile CTA Button */}
         <div className="flex justify-center mt-8 lg:hidden relative z-10">
-          <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 transition-colors">
+          <button className="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 hover:shadow-2xl hover:shadow-white/25 hover:scale-105 transform transition-all duration-300 ease-out">
             Get Started Free
-            <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2">
+            <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
               <ArrowRight className="w-4 h-4 text-white" />
             </span>
           </button>
@@ -339,9 +339,9 @@ export const Pricing = () => {
 
         {/* Desktop CTA Button */}
         <div className="hidden justify-center mt-4 lg:flex relative z-10">
-          <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 transition-colors">
+          <button className="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6C78FF] text-base font-semibold shadow-lg hover:bg-gray-50 hover:shadow-2xl hover:shadow-white/25 hover:scale-105 transform transition-all duration-300 ease-out">
             Get Started Free
-            <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2">
+            <span className="flex items-center justify-center rounded-full bg-[#6C78FF] w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
               <ArrowRight className="w-4 h-4 text-white" />
             </span>
           </button>

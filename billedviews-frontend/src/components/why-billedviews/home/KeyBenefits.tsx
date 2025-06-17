@@ -86,7 +86,7 @@ export const KeyBenefits = () => (
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className="bg-white rounded-[32px] shadow-[0_4px_8px_rgba(202,203,227,0.6)]"
+            className="group bg-white rounded-[32px] shadow-[0_4px_8px_rgba(202,203,227,0.6)] hover:shadow-[0_8px_16px_rgba(108,120,255,0.25)] hover:scale-[1.02] hover:border-[#6C78FF]/20 border-2 border-transparent cursor-pointer transform transition-all duration-300 ease-out"
             style={{
               width: "290px",
               height: "267px",
@@ -97,7 +97,7 @@ export const KeyBenefits = () => (
             }}
           >
             {/* Icon */}
-            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#6C78FF]">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#6C78FF] group-hover:scale-110 transition-transform duration-300 ease-out">
               <Image
                 src={benefit.icon}
                 alt={benefit.title}
@@ -143,9 +143,9 @@ export const KeyBenefits = () => (
 
       {/* CTA Button */}
       <div className="flex justify-center">
-        <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6C78FF] text-white text-base font-semibold shadow-lg hover:bg-[#5a66e0] transition-colors">
+        <button className="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6C78FF] text-white text-base font-semibold shadow-lg hover:bg-[#5a66e0] hover:shadow-2xl hover:shadow-[#6C78FF]/25 hover:scale-105 transform transition-all duration-300 ease-out">
           Get Started Free
-          <span className="flex items-center justify-center rounded-full bg-white w-8 h-8 ml-2">
+          <span className="flex items-center justify-center rounded-full bg-white w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
             <ArrowRight className="w-4 h-4 text-[#6C78FF]" />
           </span>
         </button>

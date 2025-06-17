@@ -69,7 +69,7 @@ const FeaturedBrands = () => {
             <Link
               href="#"
               key={index}
-              className="relative bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-200"
+              className="group relative bg-white rounded-xl p-8 shadow-md hover:shadow-2xl hover:shadow-[#6C78FF]/10 hover:scale-105 transform transition-all duration-300 ease-out"
             >
               <div className="h-20 mb-8 flex items-center justify-center">
                 <Image
@@ -106,7 +106,7 @@ const FeaturedBrands = () => {
               >
                 {item.description}
               </p>
-              <div className="absolute bottom-2 left-8 text-indigo-500">
+              <div className="absolute bottom-2 left-8 text-indigo-500 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
                 <svg
                   width="28"
                   height="28"
