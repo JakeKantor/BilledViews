@@ -18,6 +18,9 @@ const config: Config = {
       },
     },
     extend: {
+      screens: {
+        bp500: "500px",
+      },
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"],
