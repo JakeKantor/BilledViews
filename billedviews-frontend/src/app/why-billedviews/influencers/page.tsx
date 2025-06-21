@@ -2,7 +2,8 @@ import { Header } from "@/components/why-billedviews/Header";
 import Footer from "@/components/why-billedviews/Footer";
 import Hero from "@/components/why-billedviews/influencers/Hero";
 import WhyBilledViews from "@/components/why-billedviews/influencers/WhyBilledViews";
-import HowItWorksSection from "./components/HowItWorksSection";
+import HowItWorksSection from "../../../components/why-billedviews/influencers/HowItWorksSection";
+import CoreFeaturesAndBenefits from "./components/CoreFeaturesAndBenefits";
 
 export default function InfluencersPage() {
   return (
@@ -11,6 +12,7 @@ export default function InfluencersPage() {
       <Hero />
       <WhyBilledViews />
       <HowItWorksSection />
+      <CoreFeaturesAndBenefits />
       <Footer />
     </>
   );
