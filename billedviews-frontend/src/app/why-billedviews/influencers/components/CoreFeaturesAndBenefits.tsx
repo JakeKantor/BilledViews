@@ -46,7 +46,7 @@ const CoreFeaturesAndBenefits = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 justify-items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-20 justify-items-center">
           {features.map((feature, index) => (
             <div
               key={index}
