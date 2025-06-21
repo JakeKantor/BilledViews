@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const influencerData = [
   {
@@ -31,8 +36,34 @@ const influencerData = [
 ];
 
 export const InfluencersShowcase = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  } as const;
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 90,
+        damping: 18,
+      },
+    },
+  } as const;
+
   return (
-    <section className="w-full bg-white py-16 lg:py-24">
+    <section ref={sectionRef} className="w-full bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           {/* Header with Icon - copied from CoreFeaturesAndBenefits style */}
@@ -54,9 +85,15 @@ export const InfluencersShowcase = () => {
         </div>
 
         {/* Cards Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 justify-items-center max-w-6xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 justify-items-center max-w-6xl mx-auto"
+        >
           {influencerData.map((influencer, index) => (
-            <div
+            <motion.div
+              variants={cardVariants}
               key={index}
               className="flex flex-col p-5 rounded-[32px] text-white overflow-hidden"
               style={{
@@ -166,9 +203,9 @@ export const InfluencersShowcase = () => {
                   {influencer.highlight}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
