@@ -5,6 +5,8 @@ import WhyBilledViews from "@/components/why-billedviews/influencers/WhyBilledVi
 import HowItWorksSection from "../../../components/why-billedviews/influencers/HowItWorksSection";
 import CoreFeaturesAndBenefits from "./components/CoreFeaturesAndBenefits";
 import { SuccessStories } from "@/components/why-billedviews/influencers/SuccessStories";
+import { InfluencersShowcase } from "@/components/why-billedviews/influencers/InfluencersShowcase";
+import FAQ from "@/components/why-billedviews/influencers/FAQ";
 
 export default function InfluencersPage() {
   return (
@@ -15,6 +17,8 @@ export default function InfluencersPage() {
       <HowItWorksSection />
       <CoreFeaturesAndBenefits />
       <SuccessStories />
+      <InfluencersShowcase />
+      <FAQ />
       <Footer />
     </>
   );
