@@ -1,15 +1,13 @@
 import { Header } from "@/components/why-billedviews/Header";
-import Footer from "@/components/why-billedviews/Footer";
+import { Footer } from "@/components/why-billedviews/Footer";
+import Hero from "@/components/why-billedviews/agencies/Hero";
 
 export default function AgenciesPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">For Agencies</h1>
-        <p className="text-lg text-gray-600">
-          Discover how BilledViews empowers agencies
-        </p>
+      <main className="flex-grow">
+        <Hero />
       </main>
       <Footer />
     </div>
