@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       screens: {
         bp500: "500px",
+        "lg-breakpoint": "927px",
       },
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
