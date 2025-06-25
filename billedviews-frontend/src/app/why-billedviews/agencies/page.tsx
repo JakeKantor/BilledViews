@@ -4,6 +4,8 @@ import Hero from "@/components/why-billedviews/agencies/Hero";
 import WhyUs from "@/components/why-billedviews/agencies/WhyUs";
 import HowItWorksSection from "@/components/why-billedviews/agencies/HowItWorks";
 import { FeaturesOverview } from "@/components/why-billedviews/agencies/FeaturesOverview";
+import { ResultsPreview } from "@/components/why-billedviews/agencies/ResultsPreview";
+import AgenciesFAQ from "@/components/why-billedviews/agencies/FAQ";
 
 export default function AgenciesPage() {
   return (
@@ -14,6 +16,8 @@ export default function AgenciesPage() {
         <WhyUs />
         <HowItWorksSection />
         <FeaturesOverview />
+        <ResultsPreview />
+        <AgenciesFAQ />
       </main>
       <Footer />
     </div>

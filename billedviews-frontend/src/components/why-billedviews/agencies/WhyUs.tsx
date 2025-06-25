@@ -125,7 +125,7 @@ export default function WhyUs() {
           <div className="flex flex-wrap justify-center gap-8">
             {/* Card 1: Simple Campaign Management */}
             <motion.div
-              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[590px] h-[380px]"
+              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[590px] h-[380px] aspect-[1.55/1] lg:aspect-auto"
               style={cardStyle}
               variants={cardVariants("left")}
               whileHover={{ scale: 1.05, y: -10 }}
@@ -171,7 +171,7 @@ export default function WhyUs() {
 
             {/* Card 2: White-Label Dashboard */}
             <motion.div
-              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[590px] h-[380px]"
+              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[590px] h-[380px] aspect-[1.55/1] lg:aspect-auto"
               style={cardStyle}
               variants={cardVariants("right")}
               whileHover={{ scale: 1.05, y: -10 }}
@@ -220,7 +220,7 @@ export default function WhyUs() {
           <div className="flex flex-wrap justify-center gap-8">
             {/* Card 3: Agency Commission */}
             <motion.div
-              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px]"
+              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px] aspect-[1.01/1] lg:aspect-auto"
               style={cardStyle}
               variants={cardVariants("left")}
               whileHover={{ scale: 1.05, y: -10 }}
@@ -265,7 +265,7 @@ export default function WhyUs() {
 
             {/* Card 4: Turnkey Campaign Workflows */}
             <motion.div
-              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px]"
+              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px] aspect-[1.01/1] lg:aspect-auto"
               style={cardStyle}
               variants={cardVariants("up")}
               whileHover={{ scale: 1.05, y: -10 }}
@@ -311,7 +311,7 @@ export default function WhyUs() {
 
             {/* Card 5: Full Transparency */}
             <motion.div
-              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px]"
+              className="relative flex flex-col justify-between overflow-hidden w-full max-w-sm lg:max-w-none lg:w-[383px] h-[380px] aspect-[1.01/1] lg:aspect-auto"
               style={cardStyle}
               variants={cardVariants("right")}
               whileHover={{ scale: 1.05, y: -10 }}
