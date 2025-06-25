@@ -3,6 +3,7 @@ import { Footer } from "@/components/why-billedviews/Footer";
 import Hero from "@/components/why-billedviews/agencies/Hero";
 import WhyUs from "@/components/why-billedviews/agencies/WhyUs";
 import HowItWorksSection from "@/components/why-billedviews/agencies/HowItWorks";
+import { FeaturesOverview } from "@/components/why-billedviews/agencies/FeaturesOverview";
 
 export default function AgenciesPage() {
   return (
@@ -12,6 +13,7 @@ export default function AgenciesPage() {
         <Hero />
         <WhyUs />
         <HowItWorksSection />
+        <FeaturesOverview />
       </main>
       <Footer />
     </div>
