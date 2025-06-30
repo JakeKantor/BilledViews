@@ -38,53 +38,18 @@ export const Footer = () => (
           {/* Links Section */}
           <div className="flex flex-col sm:flex-row sm:justify-between lg:flex-row gap-6 lg:gap-8 flex-1">
             <div className="flex-1 min-w-0">
-              <div className="font-normal text-base text-black mb-2">
-                About BilledViews
-              </div>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/about"
+                    href="/information/support&assistance"
                     className="text-sm lg:text-base text-black hover:underline"
                   >
-                    Our Story
+                    Support & Assistance
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/press"
-                    className="text-sm lg:text-base text-black hover:underline"
-                  >
-                    Press & Media
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/careers"
-                    className="text-sm lg:text-base text-black hover:underline"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blog"
-                    className="text-sm lg:text-base text-black hover:underline"
-                  >
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <div className="font-normal text-base text-black mb-2">
-                Support & Legal
-              </div>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/help"
+                    href="/information/help-center"
                     className="text-sm lg:text-base text-black hover:underline"
                   >
                     Help Center
@@ -92,7 +57,7 @@ export const Footer = () => (
                 </li>
                 <li>
                   <Link
-                    href="/terms"
+                    href="/information/termsofservice"
                     className="text-sm lg:text-base text-black hover:underline"
                   >
                     Terms of Service
@@ -100,7 +65,7 @@ export const Footer = () => (
                 </li>
                 <li>
                   <Link
-                    href="/privacy"
+                    href="/information/privacy-policy"
                     className="text-sm lg:text-base text-black hover:underline"
                   >
                     Privacy Policy
@@ -108,7 +73,7 @@ export const Footer = () => (
                 </li>
                 <li>
                   <Link
-                    href="/cookies"
+                    href="/information/cookie-policy"
                     className="text-sm lg:text-base text-black hover:underline"
                   >
                     Cookie Policy
