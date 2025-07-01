@@ -191,7 +191,7 @@ export const Header = () => {
                 borderRadius: "48px",
               }}
             >
-              Join Now
+              Join Waitlist
             </Button>
           </div>
 
@@ -235,7 +235,7 @@ export const Header = () => {
 
             {/* Auth Buttons */}
             <div className="flex items-center space-x-3">
-              <Button
+              {/* <Button
                 variant="outline"
                 className="text-xs font-normal text-[#6C78FF] bg-white/50 border-[1.5px] border-[#6C78FF] transition-colors"
                 style={{
@@ -252,7 +252,7 @@ export const Header = () => {
                 }}
               >
                 Log In
-              </Button>
+              </Button> */}
               <Button
                 className="text-xs font-normal text-[#FFFFFF] bg-[#6C78FF] hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors"
                 style={{
@@ -268,7 +268,7 @@ export const Header = () => {
                   textAlign: "center" as const,
                 }}
               >
-                Sign Up
+                Join Waitlist
               </Button>
             </div>
           </div>
@@ -331,7 +331,7 @@ export const Header = () => {
                 {/* Auth Buttons */}
                 <div className="pt-4 space-y-3">
                   <motion.div variants={itemVariants}>
-                    <Button
+                    {/* <Button
                       variant="outline"
                       className="w-full text-sm font-normal text-[#6C78FF] bg-white/40 backdrop-blur-sm border-[1.5px] border-[#6C78FF]/80 transition-colors h-10 hover:bg-white/60"
                       style={{
@@ -341,7 +341,7 @@ export const Header = () => {
                       }}
                     >
                       Log In
-                    </Button>
+                    </Button> */}
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
@@ -353,7 +353,7 @@ export const Header = () => {
                         borderRadius: "48px",
                       }}
                     >
-                      Sign Up
+                      Join Waitlist
                     </Button>
                   </motion.div>
                 </div>
