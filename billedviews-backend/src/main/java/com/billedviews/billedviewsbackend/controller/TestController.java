@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
 
-    @GetMapping("/echome/{message}")
+    @GetMapping("/echo/dale/{message}")
     public ResponseEntity<?> echoGet(@PathVariable String message) {
         return ResponseEntity.ok(new EchoResponse(message));
     }
