@@ -59,7 +59,6 @@ jobs:
           # Copy any additional files if needed (Procfile, .ebextensions, etc.)
           if [ -f Procfile ]; then cp Procfile deploy/; fi
           if [ -d .ebextensions ]; then cp -r .ebextensions deploy/; fi
-          if [ -f Buildfile ]; then cp Buildfile deploy/; fi
 
           # Create deployment ZIP
           cd deploy
