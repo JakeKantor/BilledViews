@@ -1,0 +1,1 @@
+make: ./mvnw clean package -DskipTests
