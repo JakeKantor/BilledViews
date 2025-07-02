@@ -1,0 +1,106 @@
+name: Deploy Backend to Elastic Beanstalk
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "billedviews-backend/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: "corretto"
+          java-version: "21"
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build Spring Boot JAR
+        working-directory: billedviews-backend
+        run: ./mvnw clean package -DskipTests
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Find Elastic Beanstalk S3 bucket
+        id: find-bucket
+        run: |
+          # Find the EB S3 bucket for this region
+          S3_BUCKET=$(aws s3api list-buckets --query "Buckets[?contains(Name, 'elasticbeanstalk-us-east-1')].Name" --output text | head -1)
+          echo "Found S3 bucket: $S3_BUCKET"
+          echo "s3_bucket=$S3_BUCKET" >> $GITHUB_OUTPUT
+
+      - name: Prepare deployment artifact
+        working-directory: billedviews-backend
+        run: |
+          # Create deployment directory
+          mkdir -p deploy
+
+          # Copy JAR file to deployment directory
+          cp target/*.jar deploy/
+
+          # Copy any additional files if needed (Procfile, .ebextensions, etc.)
+          if [ -f Procfile ]; then cp Procfile deploy/; fi
+          if [ -d .ebextensions ]; then cp -r .ebextensions deploy/; fi
+          if [ -f Buildfile ]; then cp Buildfile deploy/; fi
+
+          # Create deployment ZIP
+          cd deploy
+          zip -r ../deploy.zip .
+          cd ..
+
+          # List contents for debugging
+          echo "Deployment ZIP contents:"
+          unzip -l deploy.zip
+
+      - name: Deploy to Elastic Beanstalk
+        working-directory: billedviews-backend
+        run: |
+          # Generate version label with timestamp and commit SHA
+          VERSION_LABEL="v$(date +%Y%m%d-%H%M%S)-${GITHUB_SHA:0:7}"
+          S3_BUCKET="${{ steps.find-bucket.outputs.s3_bucket }}"
+
+          echo "Deploying version: $VERSION_LABEL"
+          echo "Using S3 bucket: $S3_BUCKET"
+
+          # Upload ZIP to S3 first
+          aws s3 cp deploy.zip s3://$S3_BUCKET/deployments/$VERSION_LABEL.zip
+
+          # Create application version
+          aws elasticbeanstalk create-application-version \
+            --application-name billedviews-backend \
+            --version-label $VERSION_LABEL \
+            --source-bundle S3Bucket=$S3_BUCKET,S3Key=deployments/$VERSION_LABEL.zip \
+            --auto-create-application
+
+          # Update environment to use new version
+          aws elasticbeanstalk update-environment \
+            --environment-name billedviews-prod \
+            --version-label $VERSION_LABEL
+
+          echo "Deployment initiated for version: $VERSION_LABEL"
+          echo "Check your Elastic Beanstalk console for deployment status."
+
+      - name: Cleanup
+        working-directory: billedviews-backend
+        run: |
+          # Clean up temporary files
+          rm -f deploy.zip
+          rm -rf deploy
