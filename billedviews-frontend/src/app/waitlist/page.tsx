@@ -109,9 +109,9 @@ export default function WaitlistPage() {
         // Handle specific error cases from the backend
         if (data.error) {
           // Check if the error message contains information about which field has the error
-          if (data.error.toLowerCase().includes("email")) {
+          if (data.error.toLowerCase().indexOf("email") !== -1) {
             setErrors((prev) => ({ ...prev, email: data.error }));
-          } else if (data.error.toLowerCase().includes("phone")) {
+          } else if (data.error.toLowerCase().indexOf("phone") !== -1) {
             setErrors((prev) => ({ ...prev, phoneNumber: data.error }));
           } else {
             // Generic error for both fields
@@ -273,7 +273,7 @@ export default function WaitlistPage() {
             transition={{ delay: 0.6 }}
             className="text-center text-sm text-[#6B7280] mt-6"
           >
-            We'll notify you when BilledViews is ready. No spam, ever.
+            We&apos;ll notify you when BilledViews is ready. No spam, ever.
           </motion.p>
         </div>
       </motion.div>
@@ -330,8 +330,8 @@ export default function WaitlistPage() {
                   transition={{ delay: 0.4 }}
                   className="text-[#6B7280] text-lg mb-6"
                 >
-                  You've successfully joined the BilledViews waitlist. We'll
-                  notify you as soon as we launch!
+                  You&apos;ve successfully joined the BilledViews waitlist.
+                  We&apos;ll notify you as soon as we launch!
                 </motion.p>
 
                 <motion.div
