@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -58,12 +59,14 @@ export default function Hero() {
 
             {/* Button */}
             <div className="flex justify-center">
-              <button className="group flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#6C78FF] text-white text-base font-semibold shadow-md hover:bg-[#5a66e0] hover:shadow-2xl hover:shadow-[#6C78FF]/25 hover:scale-105 transform transition-all duration-300 ease-out">
-                Start Free Trial
-                <span className="flex items-center justify-center rounded-full bg-white w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
-                  <ArrowRight className="w-4 h-4 text-[#6C78FF]" />
-                </span>
-              </button>
+              <Link href="/waitlist">
+                <button className="group flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#6C78FF] text-white text-base font-semibold shadow-md hover:bg-[#5a66e0] hover:shadow-2xl hover:shadow-[#6C78FF]/25 hover:scale-105 transform transition-all duration-300 ease-out">
+                  Start Free Trial
+                  <span className="flex items-center justify-center rounded-full bg-white w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
+                    <ArrowRight className="w-4 h-4 text-[#6C78FF]" />
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
 

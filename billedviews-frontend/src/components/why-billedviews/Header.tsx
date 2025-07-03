@@ -180,19 +180,21 @@ export const Header = () => {
             </Link>
 
             {/* Join Now Button */}
-            <Button
-              className="text-xs font-normal text-[#FFFFFF] bg-[#6C78FF] hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors px-4 py-2 h-8 relative z-[9999]"
-              style={{
-                fontFamily: "Helvetica Neue, system-ui, sans-serif",
-                fontWeight: 400,
-                fontSize: "12px",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                borderRadius: "48px",
-              }}
-            >
-              Join Waitlist
-            </Button>
+            <Link href="/waitlist">
+              <Button
+                className="text-xs font-normal text-[#FFFFFF] bg-[#6C78FF] hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors px-4 py-2 h-8 relative z-[9999]"
+                style={{
+                  fontFamily: "Helvetica Neue, system-ui, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "12px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  borderRadius: "48px",
+                }}
+              >
+                Join Waitlist
+              </Button>
+            </Link>
           </div>
 
           {/* Desktop Layout */}
@@ -253,23 +255,25 @@ export const Header = () => {
               >
                 Log In
               </Button> */}
-              <Button
-                className="text-xs font-normal text-[#FFFFFF] bg-[#6C78FF] hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors"
-                style={{
-                  fontFamily: "Helvetica Neue, system-ui, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "12px",
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  padding: "10px 16px",
-                  borderRadius: "48px",
-                  width: "128px",
-                  height: "34px",
-                  textAlign: "center" as const,
-                }}
-              >
-                Join Waitlist
-              </Button>
+              <Link href="/waitlist">
+                <Button
+                  className="text-xs font-normal text-[#FFFFFF] bg-[#6C78FF] hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors"
+                  style={{
+                    fontFamily: "Helvetica Neue, system-ui, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "12px",
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    padding: "10px 16px",
+                    borderRadius: "48px",
+                    width: "128px",
+                    height: "34px",
+                    textAlign: "center" as const,
+                  }}
+                >
+                  Join Waitlist
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -345,16 +349,19 @@ export const Header = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <Button
-                      className="w-full text-sm font-normal text-[#FFFFFF] bg-[#6C78FF]/90 hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors h-10"
-                      style={{
-                        fontFamily: "Helvetica Neue, system-ui, sans-serif",
-                        fontWeight: 400,
-                        borderRadius: "48px",
-                      }}
-                    >
-                      Join Waitlist
-                    </Button>
+                    <Link href="/waitlist">
+                      <Button
+                        className="w-full text-sm font-normal text-[#FFFFFF] bg-[#6C78FF]/90 hover:bg-[#5a66e0] border-[1.5px] border-[#6C78FF] transition-colors h-10"
+                        style={{
+                          fontFamily: "Helvetica Neue, system-ui, sans-serif",
+                          fontWeight: 400,
+                          borderRadius: "48px",
+                        }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Join Waitlist
+                      </Button>
+                    </Link>
                   </motion.div>
                 </div>
               </div>

@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -270,12 +271,14 @@ export const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 1.5 }}
             className="flex justify-center"
           >
-            <button className="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6366F1] text-base font-semibold shadow-lg hover:bg-gray-50 hover:shadow-2xl hover:shadow-white/25 hover:scale-105 transform transition-all duration-300 ease-out">
-              Get Started Free
-              <span className="flex items-center justify-center rounded-full bg-[#6366F1] w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
-                <ArrowRight className="w-4 h-4 text-white" />
-              </span>
-            </button>
+            <Link href="/waitlist">
+              <button className="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#6366F1] text-base font-semibold shadow-lg hover:bg-gray-50 hover:shadow-2xl hover:shadow-white/25 hover:scale-105 transform transition-all duration-300 ease-out">
+                Get Started Free
+                <span className="flex items-center justify-center rounded-full bg-[#6366F1] w-8 h-8 ml-2 group-hover:rotate-45 group-hover:scale-110 transition-all duration-300 ease-out">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </span>
+              </button>
+            </Link>
           </motion.div>
         </div>
       </div>
