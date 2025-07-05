@@ -207,10 +207,8 @@ const ResultsPage = () => {
           <div className="flex justify-between items-start gap-8">
             {/* Left Column - What This Means */}
             <div
-              className="rounded-2xl p-5"
+              className="rounded-2xl p-5 w-full md:w-[680px] min-h-[175px]"
               style={{
-                width: "680px",
-                height: "175px",
                 border: "1px solid hsla(210, 31%, 89%, 1)",
                 boxShadow: "0px 2px 4px 0px hsla(238, 31%, 84%, 0.5)",
               }}
@@ -245,10 +243,8 @@ const ResultsPage = () => {
 
             {/* Right Column - Join Waitlist */}
             <div
-              className="rounded-2xl p-5"
+              className="rounded-2xl p-5 w-full md:w-[400px] min-h-[175px]"
               style={{
-                width: "400px",
-                height: "175px",
                 border: "1px solid hsla(210, 31%, 89%, 1)",
                 boxShadow: "0px 2px 4px 0px hsla(238, 31%, 84%, 0.5)",
               }}
