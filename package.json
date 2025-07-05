@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.7",
     "framer-motion": "^12.18.1"
   }
 }

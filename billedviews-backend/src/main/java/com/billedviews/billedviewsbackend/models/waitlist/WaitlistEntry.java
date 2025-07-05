@@ -1,4 +1,4 @@
-package com.billedviews.billedviewsbackend.models;
+package com.billedviews.billedviewsbackend.models.waitlist;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +23,11 @@ public class WaitlistEntry {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Pattern(regexp = "^[+]?[1-9]\\d{1,14}$", message = "Phone number should be valid")
+    // Accepts E.164 format as well as common US formatted numbers like (123) 456-7890
+    @Pattern(
+        regexp = "^[+]?[()]?[0-9]{1,4}[)]?[-\\s0-9]*$",
+        message = "Phone number should be valid"
+    )
     @Column(nullable = true)
     private String phoneNumber;
 

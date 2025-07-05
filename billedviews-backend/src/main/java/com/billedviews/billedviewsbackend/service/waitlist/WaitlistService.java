@@ -1,4 +1,4 @@
-package com.billedviews.billedviewsbackend.service;
+package com.billedviews.billedviewsbackend.service.waitlist;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.billedviews.billedviewsbackend.models.WaitlistEntry;
-import com.billedviews.billedviewsbackend.repository.WaitlistEntryRepository;
+import com.billedviews.billedviewsbackend.models.waitlist.WaitlistEntry;
+import com.billedviews.billedviewsbackend.repository.waitlist.WaitlistEntryRepository;
 
 @Service
 @Transactional

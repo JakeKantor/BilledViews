@@ -16,7 +16,7 @@ const socialLinks = [
 ];
 
 export const Footer = () => (
-  <footer className="w-full border-t-[1.5px] border-[#6C78FF] bg-white pt-6 lg:pt-10 pb-4">
+  <footer className="w-full border-t border-gray-200 bg-white pt-6 lg:pt-10 pb-4">
     <div className="max-w-7xl mx-auto px-4 lg:px-8">
       <div className="flex flex-col gap-6 lg:gap-8">
         {/* Logo */}

@@ -1,20 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+// Removed Input component import; using raw inputs for consistent styling
 import { ArrowRight, X, CheckCircle, Mail, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface WaitlistData {
+  name: string;
   email: string;
   phoneNumber: string;
 }
 
 export default function WaitlistPage() {
   const [formData, setFormData] = useState<WaitlistData>({
+    name: "",
     email: "",
     phoneNumber: "",
   });
@@ -23,7 +25,23 @@ export default function WaitlistPage() {
   const [errors, setErrors] = useState<Partial<WaitlistData>>({});
   const router = useRouter();
 
+  // Helper to auto-format US phone numbers (e.g., (123) 456-7890)
+  const formatPhoneNumber = (input: string) => {
+    const digits = input.replace(/\D/g, "").slice(0, 10);
+    const len = digits.length;
+
+    if (len === 0) return "";
+    if (len < 4) return digits;
+    if (len < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  };
+
   const handleInputChange = (field: keyof WaitlistData, value: string) => {
+    // Auto-format phone number as user types
+    if (field === "phoneNumber") {
+      value = formatPhoneNumber(value);
+    }
+
     setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear errors when user starts typing
     if (errors[field]) {
@@ -34,17 +52,18 @@ export default function WaitlistPage() {
   const validateForm = (): boolean => {
     const newErrors: Partial<WaitlistData> = {};
 
-    if (!formData.email) {
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = "Please enter a valid email";
     }
 
-    if (!formData.phoneNumber) {
-      newErrors.phoneNumber = "Phone number is required";
-    } else if (
-      !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phoneNumber.replace(/\s/g, ""))
-    ) {
+    // Phone number is optional; validate format only if provided
+    if (formData.phoneNumber && !/^[\d\s().-]+$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = "Please enter a valid phone number";
     }
 
@@ -179,6 +198,36 @@ export default function WaitlistPage() {
             onSubmit={handleSubmit}
             className="space-y-6"
           >
+            {/* Name Input */}
+            <div className="space-y-2">
+              <label
+                htmlFor="name"
+                className="text-sm font-medium text-[#111111]"
+              >
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#6C78FF] focus:border-transparent ${
+                  errors.name ? "border-red-500" : "border-gray-300"
+                }`}
+              />
+              {errors.name && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-500 text-sm"
+                >
+                  {errors.name}
+                </motion.p>
+              )}
+            </div>
+
             {/* Email Input */}
             <div className="space-y-2">
               <label
@@ -188,16 +237,15 @@ export default function WaitlistPage() {
                 <Mail className="w-4 h-4" />
                 Email Address
               </label>
-              <Input
+              <input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                name="email"
+                placeholder="Enter Your Email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className={`h-12 text-lg transition-all duration-200 ${
-                  errors.email
-                    ? "border-red-500 focus-visible:ring-red-500"
-                    : "focus-visible:ring-[#6C78FF] hover:border-[#6C78FF]/50"
+                className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#6C78FF] focus:border-transparent ${
+                  errors.email ? "border-red-500" : "border-gray-300"
                 }`}
               />
               {errors.email && (
@@ -220,18 +268,17 @@ export default function WaitlistPage() {
                 <Phone className="w-4 h-4" />
                 Phone Number
               </label>
-              <Input
+              <input
                 id="phone"
                 type="tel"
-                placeholder="Enter your phone number"
+                name="phoneNumber"
+                placeholder="(123) 456-7890"
                 value={formData.phoneNumber}
                 onChange={(e) =>
                   handleInputChange("phoneNumber", e.target.value)
                 }
-                className={`h-12 text-lg transition-all duration-200 ${
-                  errors.phoneNumber
-                    ? "border-red-500 focus-visible:ring-red-500"
-                    : "focus-visible:ring-[#6C78FF] hover:border-[#6C78FF]/50"
+                className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#6C78FF] focus:border-transparent ${
+                  errors.phoneNumber ? "border-red-500" : "border-gray-300"
                 }`}
               />
               {errors.phoneNumber && (
@@ -249,7 +296,7 @@ export default function WaitlistPage() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-[#6C78FF] to-[#5a66e0] hover:from-[#5a66e0] hover:to-[#4c59d9] shadow-lg hover:shadow-xl hover:shadow-[#6C78FF]/25 transition-all duration-300 group"
+              className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-[#6C78FF] to-[#5a66e0] hover:from-[#5a66e0] hover:to-[#4c59d9] text-white shadow-lg hover:shadow-xl hover:shadow-[#6C78FF]/25 transition-all duration-300 group"
             >
               {isSubmitting ? (
                 <motion.div
@@ -278,79 +325,62 @@ export default function WaitlistPage() {
         </div>
       </motion.div>
 
-      {/* Success Modal */}
-      <AnimatePresence>
-        {showSuccess && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-            onClick={handleCloseSuccess}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative"
-              onClick={(e) => e.stopPropagation()}
+      {/* Success Modal (same as /results) */}
+      {showSuccess && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative overflow-hidden animate-in fade-in duration-300 slide-in-from-bottom-4">
+            {/* Close Button */}
+            <button
+              onClick={handleCloseSuccess}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10"
             >
-              {/* Close Button */}
+              <X className="w-6 h-6 text-gray-500" />
+            </button>
+
+            {/* Success Icon */}
+            <div className="flex justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#6C78FF] to-purple-600 rounded-full flex items-center justify-center animate-in zoom-in duration-500 delay-200">
+                <CheckCircle className="w-12 h-12 text-white" />
+              </div>
+            </div>
+
+            {/* Success Message */}
+            <div className="text-center space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 animate-in slide-in-from-bottom-2 duration-300 delay-300">
+                Welcome to the Future!
+              </h3>
+              <p className="text-gray-600 leading-relaxed animate-in slide-in-from-bottom-2 duration-300 delay-400">
+                You&apos;re officially on the{" "}
+                <span className="font-semibold text-[#6C78FF]">
+                  VIP waitlist
+                </span>
+                ! Get ready to be among the first to experience revolutionary
+                creator marketing that actually works.
+              </p>
+              <div className="bg-gradient-to-r from-[#6C78FF]/10 to-purple-100 rounded-2xl p-4 mt-6 animate-in slide-in-from-bottom-2 duration-300 delay-500">
+                <p className="text-sm text-gray-700">
+                  <span className="font-semibold">What&apos;s next?</span>{" "}
+                  We&apos;ll send you exclusive early access and your{" "}
+                  <span className="font-semibold text-[#6C78FF]">
+                    $250 in FREE views
+                  </span>{" "}
+                  as soon as we launch!
+                </p>
+              </div>
+            </div>
+
+            {/* Action Button */}
+            <div className="mt-8 animate-in slide-in-from-bottom-2 duration-300 delay-600">
               <button
                 onClick={handleCloseSuccess}
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                className="w-full bg-gradient-to-r from-[#6C78FF] to-purple-600 text-white font-semibold py-4 px-6 rounded-full hover:from-[#5a66e0] hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <X className="w-4 h-4" />
+                Back to Home
               </button>
-
-              {/* Success Content */}
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                  className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-                >
-                  <CheckCircle className="w-10 h-10 text-green-500" />
-                </motion.div>
-
-                <motion.h2
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-2xl font-bold text-[#111111] mb-3"
-                >
-                  Congratulations! 🎉
-                </motion.h2>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-[#6B7280] text-lg mb-6"
-                >
-                  You&apos;ve successfully joined the BilledViews waitlist.
-                  We&apos;ll notify you as soon as we launch!
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <Button
-                    onClick={handleCloseSuccess}
-                    className="bg-gradient-to-r from-[#6C78FF] to-[#5a66e0] hover:from-[#5a66e0] hover:to-[#4c59d9] text-white px-8 py-3 text-lg font-semibold"
-                  >
-                    Got it!
-                  </Button>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

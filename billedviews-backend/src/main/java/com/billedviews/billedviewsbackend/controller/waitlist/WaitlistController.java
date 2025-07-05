@@ -1,4 +1,4 @@
-package com.billedviews.billedviewsbackend.controller;
+package com.billedviews.billedviewsbackend.controller.waitlist;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.billedviews.billedviewsbackend.models.WaitlistEntry;
-import com.billedviews.billedviewsbackend.service.WaitlistService;
+import com.billedviews.billedviewsbackend.models.waitlist.WaitlistEntry;
+import com.billedviews.billedviewsbackend.service.waitlist.WaitlistService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -41,7 +41,11 @@ public class WaitlistController {
         @Email(message = "Email should be valid")
         public String email;
 
-        @Pattern(regexp = "^[+]?[1-9]\\d{1,14}$", message = "Phone number should be valid")
+        // Accepts E.164 format as well as common US formatted numbers like (123) 456-7890
+        @Pattern(
+            regexp = "^[+]?[()]?[0-9]{1,4}[)]?[-\\s0-9]*$",
+            message = "Phone number should be valid"
+        )
         public String phoneNumber;
     }
 

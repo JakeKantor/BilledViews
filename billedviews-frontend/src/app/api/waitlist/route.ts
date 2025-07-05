@@ -12,15 +12,20 @@ export async function POST(request: NextRequest) {
     // Forward the request to the Spring Boot backend
     const backendUrl =
       process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8080";
+    // Strip spaces, parentheses, and dashes so backend receives a clean number
+    const sanitizedPhone = body.phoneNumber?.replace(/[^\d+]/g, "");
+
+    const payload: Record<string, string> = { email: body.email };
+    if (sanitizedPhone) {
+      payload.phoneNumber = sanitizedPhone;
+    }
+
     const response = await fetch(`${backendUrl}/api/waitlist/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: body.email,
-        phoneNumber: body.phoneNumber,
-      }),
+      body: JSON.stringify(payload),
     });
 
     // Get the response data whether it's an error or success

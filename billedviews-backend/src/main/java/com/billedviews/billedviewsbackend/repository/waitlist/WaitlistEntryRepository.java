@@ -1,9 +1,9 @@
-package com.billedviews.billedviewsbackend.repository;
+package com.billedviews.billedviewsbackend.repository.waitlist;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.billedviews.billedviewsbackend.models.WaitlistEntry;
+import com.billedviews.billedviewsbackend.models.waitlist.WaitlistEntry;
 
 @Repository
 public interface WaitlistEntryRepository extends JpaRepository<WaitlistEntry, Long> {
